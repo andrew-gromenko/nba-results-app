@@ -12,4 +12,6 @@ html {
 
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Arial",
+    "Helvetica Neue", "Helvetica", sans-serif;
 }

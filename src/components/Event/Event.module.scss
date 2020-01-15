@@ -1,0 +1,171 @@
+.event {
+  display: flex;
+  border: 1px solid #cbccce;
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+}
+
+.table-wrapper {
+  flex-grow: 1;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  border-spacing: 0;
+  background-color: #fff;
+  color: #48494a;
+}
+
+.linescores {
+  padding: 5px;
+  font-size: 11px;
+  font-weight: 400;
+  color: #2b2c2d;
+  border-bottom: 1px solid #cbccce;
+
+  &:first-child {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  &:last-child {
+    padding-right: 10px;
+    text-align: right;
+  }
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
+
+  img {
+    width: 35px;
+    margin-right: 13px;
+  }
+
+  .records {
+    margin-top: 4px;
+    font-size: 10px;
+    font-weight: 400;
+
+    .home-away {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.score {
+  font-size: 11px;
+  text-align: center;
+}
+
+.total-score {
+  position: relative;
+  padding-right: 10px;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.winner,
+.loser {
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.winner {
+  .total-score::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    border-width: 6px 6px 6px 0;
+    border-color: transparent #48494a transparent transparent;
+    border-style: solid;
+  }
+}
+
+.loser {
+  opacity: 0.7;
+}
+
+.video {
+  width: 230px;
+  padding: 10px;
+  border-left: 1px solid #cbccce;
+  border-right: 1px solid #cbccce;
+  background-color: #fff;
+
+  video {
+    width: 100%;
+    display: block;
+  }
+}
+
+.performers {
+  width: 260px;
+  padding: 10px;
+  background-color: #fff;
+
+  h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a5a6a7;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style-type: none;
+    font-size: 11px;
+
+    li {
+      display: flex;
+      align-items: center;
+
+      &:not(:first-of-type) {
+        margin-top: 7px;
+      }
+
+      .player-photo {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #cbccce;
+
+        img {
+          width: 100%;
+          display: block;
+          transform: scale(1.8);
+          margin-top: 10px;
+        }
+      }
+
+      .player-name {
+        font-weight: 600;
+      }
+
+      .player-rating {
+        margin-top: 3px;
+        color: #a5a6a7;
+      }
+    }
+  }
+}
