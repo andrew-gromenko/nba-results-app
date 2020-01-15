@@ -9,7 +9,7 @@ export default () => {
 
   useEffect(() => {
     fetchData();
-    const data = setInterval(fetchData, 60000);
+    const data = setInterval(fetchData, process.env.REACT_APP_FETCH_TIMEOUT);
 
     return () => {
       clearInterval(data);
@@ -17,9 +17,7 @@ export default () => {
   }, []);
 
   const fetchData = () =>
-    fetch(
-      "http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard1"
-    )
+    fetch(process.env.REACT_APP_BASE_URL)
       .then(response => {
         if (!response.ok) {
           throw response;
