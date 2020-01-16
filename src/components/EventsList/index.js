@@ -19,10 +19,11 @@ export default () => {
   const fetchData = () =>
     fetch(process.env.REACT_APP_BASE_URL)
       .then(response => {
-        if (!response.ok) {
-          throw response;
+        if (201 <= response.status <= 299) {
+          return response.json();
         }
-        return response.json();
+
+        throw Error("Something went wrong...");
       })
       .then(data => setEvents(data.events))
       .catch(err => {
@@ -32,9 +33,15 @@ export default () => {
   return (
     <div className={styles.EventsList}>
       {error ? (
-        <p>{error.message}</p>
+        <p className={styles.error}>{error.message}</p>
       ) : (
-        events.map(event => <Event key={event.uid} event={event} />)
+        events.map(event => (
+          <Event
+            key={event.uid}
+            competitions={event.competitions}
+            status={event.status}
+          />
+        ))
       )}
     </div>
   );
